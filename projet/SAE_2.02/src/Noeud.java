@@ -18,4 +18,9 @@ public class Noeud {
             return false;
         }
     }
+
+    public void ajouterArc(String destination,double cout){
+        Arc a = new Arc(destination,cout);
+        adj.add(a);
+    }
 }
