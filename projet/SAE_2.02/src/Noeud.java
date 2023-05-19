@@ -1,5 +1,21 @@
+import java.awt.*;
+import java.util.ArrayList;
+
 public class Noeud {
 
     private String nom ;
-    private List<Arc> adj ;
+    private List adj ;
+
+    Noeud(String n){
+        this.nom = n;
+        this.adj = new List();
+    }
+
+    public boolean equals(Noeud o){
+        if (o.nom == this.nom){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
