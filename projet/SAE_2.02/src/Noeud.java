@@ -1,14 +1,15 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Noeud {
 
     private String nom ;
-    private List adj ;
+    private List<Arc> adj ;
 
     Noeud(String n){
         this.nom = n;
-        this.adj = new List();
+        this.adj = new ArrayList<Arc>();
     }
 
     public boolean equals(Noeud o){
