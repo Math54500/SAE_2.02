@@ -24,4 +24,8 @@ public class Noeud {
         Arc a = new Arc(destination,cout);
         adj.add(a);
     }
+
+    public List<Arc> donnerToutLesArc(){
+        return this.adj;
+    }
 }

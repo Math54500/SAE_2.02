@@ -4,5 +4,5 @@ public interface Graphe {
 
     public List<String> listNoeud();
 
-    public List<Arc> suivants(String n);
+    public List<Arc> suivants(Noeud n);
 }
