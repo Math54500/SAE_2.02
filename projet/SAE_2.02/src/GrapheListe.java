@@ -19,11 +19,15 @@ public class GrapheListe implements Graphe{
         return n.donnerToutLesArc();
     }
 
+    public void ajouterNoeud(Noeud n){
+        this.ensNom.add(n.getNom());
+        this.ensNoeud.add(n);
+    }
+
     public void ajouterArc(String depart, String destination, double cout){
         if ((this.ensNom.contains(depart))&&(this.ensNom.contains(destination))){
             int inddep = this.ensNoeud.indexOf(depart);
             this.ensNoeud.get(inddep).ajouterArc(destination,cout);
         }
-
     }
 }

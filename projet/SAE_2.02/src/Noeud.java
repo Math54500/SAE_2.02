@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,5 +26,9 @@ public class Noeud {
 
     public List<Arc> donnerToutLesArc(){
         return this.adj;
+    }
+
+    public String getNom() {
+        return nom;
     }
 }
