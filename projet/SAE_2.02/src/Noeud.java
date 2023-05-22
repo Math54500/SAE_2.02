@@ -24,11 +24,19 @@ public class Noeud {
         adj.add(a);
     }
 
-    public List<Arc> donnerToutLesArc(){
-        return this.adj;
+    public String donnerToutLesArc(){
+        String rep = " ";
+        for (int i = 0 ; i < adj.size() ; i++){
+            rep += adj.get(i).getDest() + "(" + adj.get(i).getCout() + ")";
+        }
+        return rep;
     }
 
     public String getNom() {
         return nom;
+    }
+
+    public List<Arc> getAdj() {
+        return adj;
     }
 }

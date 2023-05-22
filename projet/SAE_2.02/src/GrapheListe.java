@@ -16,18 +16,47 @@ public class GrapheListe implements Graphe{
     }
 
     public List<Arc> suivants(Noeud n){
-        return n.donnerToutLesArc();
+        return n.getAdj();
     }
 
     public void ajouterNoeud(Noeud n){
-        this.ensNom.add(n.getNom());
-        this.ensNoeud.add(n);
+        ensNom.add(n.getNom());
+        ensNoeud.add(n);
     }
 
     public void ajouterArc(String depart, String destination, double cout){
-        if ((this.ensNom.contains(depart))&&(this.ensNom.contains(destination))){
-            int inddep = this.ensNoeud.indexOf(depart);
-            this.ensNoeud.get(inddep).ajouterArc(destination,cout);
+        boolean trouvedep = false;
+        int i = 0;
+        while((!trouvedep)&&(i < ensNoeud.size())){
+            if (((ensNoeud.get(i)).getNom()).equals(depart)){
+                trouvedep = true;
+            }else {
+                i ++;
+            }
         }
+        boolean trouvedes = false;
+        int j = 0;
+        while((!trouvedes)&&(j < ensNoeud.size())){
+            if (((ensNoeud.get(j)).getNom()).equals(destination)){
+                trouvedes = true;
+            }else {
+                j ++;
+            }
+        }
+        if ((trouvedes)&&(trouvedep)){
+            (ensNoeud.get(i)).ajouterArc(destination,cout);
+        }
+        //if ((ensNom.contains("a"))&&(ensNom.contains("a"))){
+        // int inddep = ensNoeud.indexOf(depart);
+        //   (ensNoeud.get(inddep)).ajouterArc(destination,cout);
+    }
+
+    @Override
+    public String toString() {
+        String rep = "";
+        for (int i = 0; i < ensNom.size(); i ++){
+            rep += ensNom.get(i) + "->" + ensNoeud.get(i).donnerToutLesArc()+ "\n";
+        }
+        return rep;
     }
 }
