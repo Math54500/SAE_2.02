@@ -46,17 +46,26 @@ public class GrapheListe implements Graphe{
         if ((trouvedes)&&(trouvedep)){
             (ensNoeud.get(i)).ajouterArc(destination,cout);
         }
-        //if ((ensNom.contains("a"))&&(ensNom.contains("a"))){
-        // int inddep = ensNoeud.indexOf(depart);
-        //   (ensNoeud.get(inddep)).ajouterArc(destination,cout);
     }
 
     @Override
     public String toString() {
         String rep = "";
         for (int i = 0; i < ensNom.size(); i ++){
-            rep += ensNom.get(i) + "->" + ensNoeud.get(i).donnerToutLesArc()+ "\n";
+            rep += ensNom.get(i) + "->" + ensNoeud.get(i).donnerToutLesArc() + "\n";
         }
         return rep;
+    }
+    
+    public String toGraphViz(){
+        String graph = "digraph "  +"{"  + "\n";
+        for (int i = 0 ; i < ensNom.size() ; i ++){
+            for (int j = 0 ; j < ensNoeud.get(i).getAdj().size() ; j ++){
+                graph += ensNom.get(i) + "->" + ensNoeud.get(i).getAdj().get(j).getDest()
+                        + " LABEL = " + ensNoeud.get(i).getAdj().get(j).getCout()  + "] \n";
+            }
+        }
+        graph += "}";
+        return graph;
     }
 }
